@@ -15,19 +15,27 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class BlurView extends ConstraintLayout {
 
+    /**
+     * You can customize blurLevel parameter according to your project.
+     * Use getBlur method with blurLevel parameter to update the level.
+     */
+    private int blurLevel = 50;
+
     public BlurView(Context context) {
         super(context);
-
     }
 
     public BlurView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
     }
 
     public BlurView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
 
+    public void getBlur(final Context context, final View view, int blurLevel) {
+        this.blurLevel = blurLevel;
+        getBlur(context, view);
     }
 
     public void getBlur(final Context context, final View view) {
@@ -42,7 +50,7 @@ public class BlurView extends ConstraintLayout {
 
                 Bitmap map = takeScreenShot(context, view);
 
-                Bitmap fast = makeBlur(map, 50);
+                Bitmap fast = makeBlur(map, blurLevel);
                 final Drawable draw = new BitmapDrawable(getResources(), fast);
 
                 setBackgroundDrawable(draw);

@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BlurView blurView = findViewById(R.id.fkBlurView);
-        blurView.getBlur(this, blurView);
+        // Blur level starts from 1. It's minimum level.
+        // Default blurLevel 50 if you don't pass any value.
+        blurView.getBlur(this, blurView, 40);
     }
 }
