@@ -53,7 +53,7 @@ public class FKBlurView extends ConstraintLayout {
                 Bitmap fast = makeBlur(map, blurLevel);
                 final Drawable draw = new BitmapDrawable(getResources(), fast);
 
-                setBackgroundDrawable(draw);
+                setBackground(draw);
             }
         });
     }
