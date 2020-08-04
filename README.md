@@ -19,7 +19,7 @@ You can add the library to your project using **jitpack.io**. Add the code below
    }
 ```   
 
-<img src="screenshot/example-project-screenshot.png" width="30%" height="30%"/>
+<img src="screenshot/example-project-screenshot.png" width="100%" height="100%"/>
 
 ## How to use?
 
