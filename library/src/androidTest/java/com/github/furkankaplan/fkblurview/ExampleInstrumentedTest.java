@@ -1,4 +1,4 @@
-package com.github.furkankaplan.blurviewexample;
+package com.github.furkankaplan.fkblurview;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.github.furkankaplan.blurviewexample", appContext.getPackageName());
+        assertEquals("com.github.furkankaplan.fkblurview.test", appContext.getPackageName());
     }
 }

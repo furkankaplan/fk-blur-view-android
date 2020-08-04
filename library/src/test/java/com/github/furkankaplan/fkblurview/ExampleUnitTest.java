@@ -1,4 +1,4 @@
-package com.github.furkankaplan.blurviewexample;
+package com.github.furkankaplan.fkblurview;
 
 import org.junit.Test;
 

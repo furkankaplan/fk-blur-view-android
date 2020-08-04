@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/profile_picture"/>
 
-    <com.github.furkankaplan.blurview.BlurView
+    <com.github.furkankaplan.fkblurview.FKBlurView
         android:id="@+id/fkBlurView"
         android:layout_width="0dp"
         android:layout_height="0dp"

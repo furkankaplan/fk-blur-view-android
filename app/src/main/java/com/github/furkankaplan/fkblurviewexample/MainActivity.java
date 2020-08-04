@@ -1,10 +1,10 @@
-package com.github.furkankaplan.blurviewexample;
+package com.github.furkankaplan.fkblurviewexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.github.furkankaplan.blurview.BlurView;
+import com.github.furkankaplan.fkblurview.FKBlurView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BlurView blurView = findViewById(R.id.fkBlurView);
+        FKBlurView blurView = findViewById(R.id.fkBlurView);
         // Blur level starts from 1. It's minimum level.
         // Default blurLevel 50 if you don't pass any value.
-        blurView.getBlur(this, blurView, 40);
+        blurView.getBlur(this, blurView);
     }
 }

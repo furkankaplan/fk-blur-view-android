@@ -1,4 +1,4 @@
-package com.github.furkankaplan.blurview;
+package com.github.furkankaplan.fkblurview;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.view.ViewTreeObserver;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class BlurView extends ConstraintLayout {
+public class FKBlurView extends ConstraintLayout {
 
     /**
      * You can customize blurLevel parameter according to your project.
@@ -21,15 +21,15 @@ public class BlurView extends ConstraintLayout {
      */
     private int blurLevel = 50;
 
-    public BlurView(Context context) {
+    public FKBlurView(Context context) {
         super(context);
     }
 
-    public BlurView(Context context, AttributeSet attrs) {
+    public FKBlurView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public BlurView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FKBlurView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
