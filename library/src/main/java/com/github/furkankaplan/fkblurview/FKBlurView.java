@@ -1,6 +1,8 @@
 package com.github.furkankaplan.fkblurview;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -10,6 +12,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -33,12 +36,19 @@ public class FKBlurView extends ConstraintLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public void getBlur(final Context context, final View view, int blurLevel) {
+    /*
+    * You can use this method when you want to get blur any part of the view of the context.
+    * Change the blur effect with blurLevel parameter.
+    */
+    public void setBlur(final Context context, final View view, int blurLevel) {
         this.blurLevel = blurLevel;
-        getBlur(context, view);
+        setBlur(context, view);
     }
 
-    public void getBlur(final Context context, final View view) {
+    /*
+     * You can use this method when you want to get blur any part of the view of the context.
+     */
+    public void setBlur(final Context context, final View view) {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -58,6 +68,52 @@ public class FKBlurView extends ConstraintLayout {
         });
     }
 
+    /*
+     * You can use this method when you want to get blur the background of any view including action bar. For example PopupWindow.
+     * Example project provides how to use instance.
+     * Change the blur effect with blurLevel parameter.
+     */
+    public void setBlurBackground(final Context context, final View view, int blurLevel) {
+        this.blurLevel = blurLevel;
+        setBlurBackground(context, view);
+    }
+
+    public void setBlurBackground(final Context context, final View view) {
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT > 16) {
+                    getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+
+                Bitmap map = takeBackgroundScreenshot(context);
+
+                Bitmap fast = makeBlur(map, blurLevel);
+                final Drawable draw = new BitmapDrawable(getResources(), fast);
+
+                view.setBackground(draw);
+            }
+        });
+    }
+
+    private Bitmap takeBackgroundScreenshot(Context context) {
+        Activity activity = (Activity) context;
+        View view = activity.getWindow().getDecorView();
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap b1 = view.getDrawingCache();
+        Rect frame = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        int width = activity.getWindowManager().getDefaultDisplay().getWidth();
+        int height = activity.getWindowManager().getDefaultDisplay().getHeight();
+
+        Bitmap b = Bitmap.createBitmap(b1, 0, statusBarHeight, width, height);
+        view.destroyDrawingCache();
+        return b;
+    }
 
     private Bitmap takeScreenShot(Context context, View view) {
         View backgroundFrameView = ((Activity) context).getWindow().getDecorView();
