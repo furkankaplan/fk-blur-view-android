@@ -68,7 +68,7 @@ MainActivity.java
  blurView.getBlur(this, blurView);
 ```
 
-or you can make blur the background of custom Popup Window layout. It's so simple like previous example.
+*Or* you can make blur the background of custom Popup Window layout. It's so simple like previous example.
 
 MainActivity.java
 ```
