@@ -77,7 +77,7 @@ LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLA
 View v = inflater.inflate(R.layout.popup, (ViewGroup) findViewById(R.id.root_fk_blur_view));
 
 FKBlurView popupBlurView = v.findViewById(R.id.root_fk_blur_view);
-popupBlurView.setBlur(MainActivity.this, popupBlurView);
+popupBlurView.setBlurBackground(MainActivity.this, popupBlurView);
 
 final PopupWindow errorPopup = new PopupWindow(v,
         getWindowManager().getDefaultDisplay().getWidth(),
