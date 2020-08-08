@@ -5,8 +5,9 @@ You can use it in everywhere as a background of a dialog view or part of a profi
 
 ## How to install?
 
-You can add the library to your project using **jitpack.io**. Add the code below to your **app's gradle** file.
+You can add the library to your project using **jitpack.io**. 
 
+Add the code below to your **project's gradle** file.
 ```
    allprojects {
         repositories {
@@ -14,8 +15,12 @@ You can add the library to your project using **jitpack.io**. Add the code below
             maven { url "https://jitpack.io" }
         }
    }
+```
+
+Add the code below to your **app's gradle** file.
+```
    dependencies {
-        implementation 'com.github.furkankaplan:fk-blur-view-android:1.0.0'
+        implementation 'com.github.furkankaplan:fk-blur-view-android:1.0.1'
    }
 ```   
 **Partial View Usage Screenshot**
